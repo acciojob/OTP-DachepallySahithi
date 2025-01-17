@@ -1,24 +1,32 @@
-/*  your css code here. If applicable */
-.container {
-  text-align: center;
-  margin: 50px auto;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+#verification-container {
+    text-align: center;
+    margin: 50px auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#verification-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#verification-subtext {
+    margin-bottom: 20px;
 }
 
 .code-container {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .code {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 20px;
-  margin: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px;
 }
