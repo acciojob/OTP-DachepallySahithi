@@ -1,17 +1,17 @@
-function moveToNext(current) {
-    if (current.value.length === current.maxLength) {
-        var next = current.nextElementSibling;
-        if (next) {
-            next.focus();
-        }
-    }
-}
+const otpFields = document.querySelectorAll('.code');
 
-function handleBackspace(current) {
-    if (current.value === '') {
-        var prev = current.previousElementSibling;
-        if (prev) {
-            prev.focus();
-        }
+otpFields.forEach((field, index) => {
+  field.addEventListener('input', () => {
+    if (field.value.length === 1 && index < otpFields.length - 1) {
+      otpFields[index + 1].focus();
     }
-}
+  });
+
+  field.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && field.value === '') {
+      if (index > 0) {
+        otpFields[index - 1].focus();
+      }
+    }
+  });
+});
