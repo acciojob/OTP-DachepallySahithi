@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<title>OTP Verification</title>
-	<link rel="stylesheet" href="styles.css">
+  <title>OTP Verification</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<div class="container">
-		<h1 id="verification_heading">Verify Your Account</h1>
-		<p id="verification_subtext">We emailed you the six digit code to acciojob@email.com. Enter the code below to confirm your email address.</p>
-	
-		<div class="code-container">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-            <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-        </div>
-		<p>This is design only. We didn't actually sendyou an email as we don't have your email, right?</p>
-	</div>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <div class="container">
+    <h1 id="verification_heading">Verify Your Account</h1>
+    <p id="verification_subtext">We emailed you the six digit code to acciojob@email.com. Enter the code below to confirm your email address.</p>
 
+    <div class="code-container">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+    </div>
+
+    <p>This is design only. We didn't actually send you an email as we don't have your email, right?</p>
+  </div>
+
+  <script type="text/javascript">
+  function moveToNext(currentInput) {
+    const nextInput = currentInput.nextElementSibling;
+    if (nextInput) {
+      try {
+        nextInput.focus();
+        console.log(`Focus moved to next input: ${nextInput.id}`);
+      } catch (error) {
+        console.error(`Error moving focus: ${error}`);
+      }
+    } else {
+      console.log("No next input field found.");
+    }
+  }
+
+  function handleBackspace(currentInput) {
+    if (event.keyCode === 8 && currentInput.value === '') {
+      const prevInput = currentInput.previousElementSibling;
+      if (prevInput) {
+        prevInput.focus();
+        prevInput.value = '';
+      }
+    }
+  }
+  </script>
 </body>
-
 </html>
