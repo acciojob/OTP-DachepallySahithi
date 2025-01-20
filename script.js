@@ -1,17 +1,18 @@
-document.querySelectorAll('.code').forEach((input, index, inputs) => {
-    input.addEventListener('input', () => {
-        if (input.value) {
-            const nextInput = inputs[index + 1];
-            if (nextInput) nextInput.focus();
+function moveToNext(currentInput) {
+    if (currentInput.value.length === 1) {
+        const nextInput = currentInput.nextElementSibling;
+        if (nextInput) {
+            nextInput.focus();
         }
-    });
+    }
+}
 
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && !input.value && index > 0) {
-            const prevInput = inputs[index - 1];
-            if (prevInput) prevInput.focus();
+function handleBackspace(currentInput) {
+    if (event.keyCode === 8 && currentInput.value === '') {
+        const prevInput = currentInput.previousElementSibling;
+        if (prevInput) {
+            prevInput.focus();
+            prevInput.value = '';
         }
-    });
-});
-
-document.querySelector('.code').focus();
+    }
+}
