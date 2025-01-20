@@ -22,26 +22,26 @@
   </div>
 
   <script type="text/javascript">
-  function moveToNext(currentInput) {
-    if (currentInput.value.length === 1) {
-      const nextInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) + 1;
-      const nextInput = currentInput.parentNode.children[nextInputIndex];
-      if (nextInput) {
-        nextInput.focus();
+    function moveToNext(currentInput) {
+      if (currentInput.value.length === 1) {
+        const nextInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) + 1;
+        const nextInput = currentInput.parentNode.children[nextInputIndex];
+        if (nextInput) {
+          nextInput.focus();
+        }
       }
     }
-  }
 
-  function handleBackspace(currentInput) {
-    if (event.keyCode === 8 && currentInput.value === '') {
-      const prevInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) - 1;
-      const prevInput = currentInput.parentNode.children[prevInputIndex];
-      if (prevInput) {
-        prevInput.focus();
-        prevInput.value = '';
+    function handleBackspace(currentInput) {
+      if (event.keyCode === 8 && currentInput.value === '') {
+        const prevInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) - 1;
+        const prevInput = currentInput.parentNode.children[prevInputIndex];
+        if (prevInput) {
+          prevInput.focus();
+          prevInput.value = '';
+        }
       }
     }
-  }
   </script>
 </body>
 </html>
