@@ -1,0 +1,1 @@
+cy.focused().should("id", "code-2", { timeout: 10000 }); // Increased timeout to 10 seconds
