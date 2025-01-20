@@ -1,18 +1,13 @@
 function moveToNext(currentInput) {
-    if (currentInput.value.length === 1) {
-        const nextInput = currentInput.nextElementSibling;
-        if (nextInput) {
+    const nextInput = currentInput.nextElementSibling;
+    if (nextInput) {
+        try {
             nextInput.focus();
+            console.log(`Focus moved to next input: ${nextInput.id}`); 
+        } catch (error) {
+            console.error(`Error moving focus: ${error}`);
         }
-    }
-}
-
-function handleBackspace(currentInput) {
-    if (event.keyCode === 8 && currentInput.value === '') {
-        const prevInput = currentInput.previousElementSibling;
-        if (prevInput) {
-            prevInput.focus();
-            prevInput.value = '';
-        }
+    } else {
+        console.log("No next input field found.");
     }
 }
