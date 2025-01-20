@@ -10,12 +10,12 @@
     <p id="verification_subtext">We emailed you the six digit code to acciojob@email.com. Enter the code below to confirm your email address.</p>
 
     <div class="code-container">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
-      <input type="text" class="code" maxlength="1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-1" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-2" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-3" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-4" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-5" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
+      <input type="text" class="code" maxlength="1" id="code-6" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
     </div>
 
     <p>This is design only. We didn't actually send you an email as we don't have your email, right?</p>
@@ -23,22 +23,19 @@
 
   <script type="text/javascript">
   function moveToNext(currentInput) {
-    const nextInput = currentInput.nextElementSibling;
-    if (nextInput) {
-      try {
+    if (currentInput.value.length === 1) {
+      const nextInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) + 1;
+      const nextInput = currentInput.parentNode.children[nextInputIndex];
+      if (nextInput) {
         nextInput.focus();
-        console.log(`Focus moved to next input: ${nextInput.id}`);
-      } catch (error) {
-        console.error(`Error moving focus: ${error}`);
       }
-    } else {
-      console.log("No next input field found.");
     }
   }
 
   function handleBackspace(currentInput) {
     if (event.keyCode === 8 && currentInput.value === '') {
-      const prevInput = currentInput.previousElementSibling;
+      const prevInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) - 1;
+      const prevInput = currentInput.parentNode.children[prevInputIndex];
       if (prevInput) {
         prevInput.focus();
         prevInput.value = '';
