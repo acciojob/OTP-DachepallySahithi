@@ -18,30 +18,10 @@
       <input type="text" class="code" maxlength="1" id="code-6" oninput="moveToNext(this)" onkeydown="handleBackspace(this)">
     </div>
 
-    <p>This is design only. We didn't actually send you an email as we don't have your email, right?</p>
+    <div class="note">This is design only. We didn't actually send you an email as we don't have your email, right?</div>
   </div>
 
   <script type="text/javascript">
-    function moveToNext(currentInput) {
-      if (currentInput.value.length === 1) {
-        const nextInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) + 1;
-        const nextInput = currentInput.parentNode.children[nextInputIndex];
-        if (nextInput) {
-          nextInput.focus();
-        }
-      }
-    }
-
-    function handleBackspace(currentInput) {
-      if (event.keyCode === 8 && currentInput.value === '') {
-        const prevInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput) - 1;
-        const prevInput = currentInput.parentNode.children[prevInputIndex];
-        if (prevInput) {
-          prevInput.focus();
-          prevInput.value = '';
-        }
-      }
-    }
   </script>
 </body>
 </html>
