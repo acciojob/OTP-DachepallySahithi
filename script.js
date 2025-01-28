@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const inputs = document.querySelectorAll(".code");
 
   inputs.forEach((input, index) => {
@@ -38,3 +38,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // Focus the first input field on page load
   inputs[0].focus();
 });
+*/
