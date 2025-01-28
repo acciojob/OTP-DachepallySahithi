@@ -1,30 +1,40 @@
-const inputs = document.querySelectorAll(".code");
+document.addEventListener("DOMContentLoaded", () => {
+  const inputs = document.querySelectorAll(".code");
 
-inputs.forEach((input, index) => {
-  input.addEventListener("input", (e) => {
-    const value = e.target.value;
-    if (value) {
-      // Move to the next input field
-      if (index < inputs.length - 1) {
-        inputs[index + 1].focus();
-      }
-    }
-  });
-
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Backspace") {
-      if (!e.target.value && index > 0) {
-        // Move to the previous input field
-        inputs[index - 1].focus();
-      }
-    }
-  });
-
-  // Ensure focus starts at the first input field on load
-  if (index === 0) {
-    input.setAttribute("id", "code-1");
-    input.focus();
-  } else {
+  inputs.forEach((input, index) => {
+    // Assign unique IDs for testing
     input.setAttribute("id", `code-${index + 1}`);
-  }
+
+    // Handle input typing
+    input.addEventListener("input", (e) => {
+      const value = e.target.value;
+
+      if (value) {
+        // Move to the next input if the current field is filled
+        if (index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      }
+    });
+
+    // Handle backspace key
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace") {
+        if (!e.target.value && index > 0) {
+          // Move focus to the previous input
+          inputs[index - 1].focus();
+        }
+      }
+    });
+
+    // Ensure input fields only accept numbers
+    input.addEventListener("keypress", (e) => {
+      if (!/[0-9]/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Focus the first input field on page load
+  inputs[0].focus();
 });
