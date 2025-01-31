@@ -1,16 +1,25 @@
-const otpFields = document.querySelectorAll('.code');
+const codeInputs = document.querySelectorAll('.code');
 
-otpFields.forEach((input, index) => {
-    input.addEventListener('input', () => {
-        if (input.value && index < otpFields.length - 1) {
-            otpFields[index + 1].focus();
+codeInputs.forEach((input, index) => {
+    input.addEventListener('input', (event) => {
+        const inputValue = event.target.value;
+        if (inputValue.length === 1) {
+            if (index < codeInputs.length - 1) {
+                codeInputs[index + 1].focus();
+            }
         }
     });
 
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && index > 0) {
-            input.value = '';
-            otpFields[index - 1].focus();
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Backspace') {
+            if (input.value === '') {
+                if (index > 0) {
+                    codeInputs[index - 1].focus();
+                }
+            }
         }
     });
 });
+
+// Focus on the first input field when the page loads
+codeInputs[0].focus();

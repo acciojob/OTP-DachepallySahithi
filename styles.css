@@ -4,26 +4,54 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0; /* Light gray background */
+    margin: 0; /* Remove default margins */
 }
 
-#verification-container {
-    background-color: #fff;
+.container {
+    background-color: white;
     padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center the content */
 }
 
-#otp-fields {
+#verification_heading {
+    color: #333; /* Dark gray heading */
+    margin-bottom: 10px;
+}
+
+#verification_subtext {
+    color: #666; /* Slightly lighter gray text */
+    margin-bottom: 20px;
+}
+
+.code-container {
     display: flex;
+    gap: 10px; /* Space between inputs */
+    justify-content: center; /* Center the inputs */
+    margin-bottom: 20px;
 }
 
 .code {
     width: 40px;
     height: 40px;
-    margin: 5px;
-    text-align: center;
-    font-size: 24px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    appearance: none; /* Remove default number input styles */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+}
+
+.code:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Subtle glow on focus */
+}
+
+.disclaimer {
+    color: #999; /* Light gray disclaimer */
+    font-size: 14px;
 }
